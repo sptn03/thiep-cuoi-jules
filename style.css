@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Quicksand:wght@400;500;700&display=swap');
+
+:root {
+    --primary-color: #8B4513; /* SaddleBrown */
+    --secondary-color: #F5DEB3; /* Wheat */
+    --text-color: #333;
+    --bg-color: #FFF8F0;
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Quicksand', sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-body);
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    line-height: 1.6;
+    text-align: center;
+}
+
+h1, h2, h3 {
+    font-family: var(--font-heading);
+    color: var(--primary-color);
+}
+
+h1 {
+    font-size: 4rem;
+}
+
+h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+h3 {
+    font-size: 1.8rem;
+}
+
+section {
+    padding: 4rem 2rem;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+.hero-banner {
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://via.placeholder.com/1920x1080/CCCCCC/808080?text=Ảnh+Nền+Đám+Cưới') no-repeat center center/cover;
+    color: white;
+    padding: 6rem 2rem;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#countdown {
+    font-size: 2rem;
+    margin-top: 1.5rem;
+    font-weight: 700;
+}
+
+#bride-groom .couple {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+}
+
+#bride-groom .person {
+    max-width: 300px;
+}
+
+#bride-groom .person img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid var(--secondary-color);
+}
+
+#love-story {
+    background-color: #fff;
+}
+
+#love-story p {
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 1.1rem;
+}
+
+#event-details .event {
+    margin-bottom: 2rem;
+}
+
+#event-details .map-placeholder {
+    width: 100%;
+    max-width: 600px;
+    height: 300px;
+    background-color: #eee;
+    margin: 1rem auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px dashed var(--primary-color);
+}
+
+#gallery .photo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+#gallery .photo-grid img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+#gallery .photo-grid img:hover {
+    transform: scale(1.05);
+}
+
+footer {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 2rem;
+    font-size: 1.1rem;
+}
