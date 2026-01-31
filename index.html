@@ -4,25 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Thiệp Cưới | Cô Dâu & Chú Rể</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div id="floating-hearts"></div>
+    <!-- Floral Decor Corners -->
+    <img src="https://img.freepik.com/free-vector/hand-drawn-floral-corner-background_23-2148943268.jpg?w=300" class="floral-decor top-left" alt="Corner Decor">
+    <img src="https://img.freepik.com/free-vector/hand-drawn-floral-corner-background_23-2148943268.jpg?w=300" class="floral-decor bottom-right" alt="Corner Decor">
+
     <header class="hero-banner">
         <h1>Cô Dâu & Chú Rể</h1>
         <p>Trân trọng báo tin lễ thành hôn</p>
         <div id="countdown"></div>
     </header>
 
+    <div class="wave-divider">
+        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+        </svg>
+    </div>
+
     <main>
-        <section id="bride-groom">
+        <section id="bride-groom" class="fade-up">
             <h2>Cô Dâu & Chú Rể</h2>
             <div class="couple">
-                <div class="person">
+                <div class="person fade-right">
                     <img src="https://via.placeholder.com/150/CCCCCC/808080?text=C%C3%B4+D%C3%A2u" alt="Cô Dâu">
                     <h3>Tên Cô Dâu</h3>
                     <p>Con gái ông [Tên bố cô dâu] và bà [Tên mẹ cô dâu]</p>
                 </div>
-                <div class="person">
+                <div class="person fade-left">
                     <img src="https://via.placeholder.com/150/CCCCCC/808080?text=Ch%C3%BA+R%E1%BB%83" alt="Chú Rể">
                     <h3>Tên Chú Rể</h3>
                     <p>Con trai ông [Tên bố chú rể] và bà [Tên mẹ chú rể]</p>
@@ -30,20 +44,27 @@
             </div>
         </section>
 
-        <section id="love-story">
+        <!-- New Quote Section -->
+        <section id="quote" class="fade-up">
+            <div class="quote-content">
+                <p>"Hạnh phúc không phải là điểm đến, mà là hành trình chúng ta đi cùng nhau."</p>
+            </div>
+        </section>
+
+        <section id="love-story" class="zoom-in">
             <h2>Chuyện Tình Yêu</h2>
             <p>[Kể câu chuyện tình yêu của bạn ở đây]</p>
         </section>
 
-        <section id="event-details">
+        <section id="event-details" class="fade-up">
             <h2>Thông Tin Hôn Lễ</h2>
-            <div class="event">
+            <div class="event fade-right">
                 <h3>Lễ Cưới</h3>
                 <p><strong>Thời gian:</strong> [Giờ], [Ngày] tháng [Tháng] năm [Năm]</p>
                 <p><strong>Địa điểm:</strong> [Địa điểm tổ chức lễ cưới]</p>
                 <div class="map-placeholder">[Bản đồ đến địa điểm lễ cưới]</div>
             </div>
-            <div class="event">
+            <div class="event fade-left">
                 <h3>Tiệc Cưới</h3>
                 <p><strong>Thời gian:</strong> [Giờ], [Ngày] tháng [Tháng] năm [Năm]</p>
                 <p><strong>Địa điểm:</strong> [Địa điểm tổ chức tiệc cưới]</p>
@@ -51,13 +72,25 @@
             </div>
         </section>
 
-        <section id="gallery">
+        <section id="gallery" class="fade-up">
             <h2>Album Ảnh Cưới</h2>
-            <div class="photo-grid">
-                <img src="https://via.placeholder.com/300/CCCCCC/808080?text=Ảnh+Cưới+1" alt="Ảnh cưới 1">
-                <img src="https://via.placeholder.com/300/CCCCCC/808080?text=Ảnh+Cưới+2" alt="Ảnh cưới 2">
-                <img src="https://via.placeholder.com/300/CCCCCC/808080?text=Ảnh+Cưới+3" alt="Ảnh cưới 3">
-                <img src="https://via.placeholder.com/300/CCCCCC/808080?text=Ảnh+Cưới+4" alt="Ảnh cưới 4">
+            <div class="photo-grid stagger-delay">
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/300/CCCCCC/808080?text=Ảnh+Cưới+1" alt="Ảnh cưới 1">
+                    <div class="gallery-overlay"><span>Xem ảnh</span></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/300/CCCCCC/808080?text=Ảnh+Cưới+2" alt="Ảnh cưới 2">
+                    <div class="gallery-overlay"><span>Xem ảnh</span></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/300/CCCCCC/808080?text=Ảnh+Cưới+3" alt="Ảnh cưới 3">
+                    <div class="gallery-overlay"><span>Xem ảnh</span></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/300/CCCCCC/808080?text=Ảnh+Cưới+4" alt="Ảnh cưới 4">
+                    <div class="gallery-overlay"><span>Xem ảnh</span></div>
+                </div>
             </div>
         </section>
     </main>
