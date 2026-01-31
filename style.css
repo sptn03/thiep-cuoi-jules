@@ -120,16 +120,24 @@ section.visible {
 #bride-groom .person img {
     width: 200px;
     height: 200px;
-    border-radius: 50%;
     object-fit: cover;
     border: 3px solid #fff;
+    /* Hiệu ứng viền blob */
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
     box-shadow: 0 0 0 5px var(--primary-color), 0 10px 20px rgba(0,0,0,0.2);
     margin-bottom: 1rem;
-    transition: transform 0.3s ease;
+    transition: all 5s ease-in-out;
+    animation: blob-morph 8s infinite alternate;
 }
 
 #bride-groom .person img:hover {
     transform: scale(1.05);
+}
+
+@keyframes blob-morph {
+    0% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+    50% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
+    100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
 }
 
 #love-story {
@@ -184,18 +192,58 @@ section.visible {
     margin-top: 2rem;
 }
 
-#gallery .photo-grid img {
+#gallery .photo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    cursor: pointer;
+    aspect-ratio: 1 / 1; /* Tạo khung vuông đều */
+}
+
+.gallery-item img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: 15px;
-    transition: all 0.4s ease;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: transform 0.5s ease;
 }
 
-#gallery .photo-grid img:hover {
-    transform: scale(1.03);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+.gallery-item:hover img {
+    transform: scale(1.1) rotate(2deg);
+}
+
+.gallery-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.gallery-item:hover .gallery-overlay {
+    opacity: 1;
+}
+
+.gallery-overlay span {
+    color: white;
+    font-size: 1.5rem;
+    border: 1px solid white;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-family: var(--font-heading);
 }
 
 footer {
@@ -204,3 +252,107 @@ footer {
     padding: 2rem;
     font-size: 1.1rem;
 }
+/* Floating Hearts Background */
+#floating-hearts {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.heart {
+    position: absolute;
+    bottom: -10vh;
+    background-color: rgba(255, 182, 193, 0.6); /* LightPink transparent */
+    display: inline-block;
+    height: 30px;
+    width: 30px;
+    margin: 0 10px;
+    transform: rotate(-45deg);
+    animation: floatUp 15s linear infinite;
+}
+
+.heart:before,
+.heart:after {
+    content: "";
+    position: absolute;
+    background-color: inherit;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+}
+
+.heart:before {
+    top: -15px;
+    left: 0;
+}
+
+.heart:after {
+    left: 15px;
+    top: 0;
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(0) rotate(-45deg) scale(0.5);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateY(-120vh) rotate(-45deg) scale(1);
+        opacity: 0;
+    }
+}
+.wave-divider {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    margin-top: -1px; /* Tránh khe hở */
+}
+
+.wave-divider svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 100px;
+}
+
+.wave-divider .shape-fill {
+    fill: var(--bg-color); /* Màu nền của section phía dưới */
+}
+
+/* Đảm bảo hero banner không bị che mất phần dưới */
+.hero-banner {
+    padding-bottom: 8rem; /* Tăng padding để bù cho wave */
+}
+
+/* Scroll Animations */
+.fade-up, .fade-left, .fade-right, .zoom-in {
+    opacity: 0;
+    transition: all 1s ease-out;
+}
+
+.fade-up { transform: translateY(50px); }
+.fade-left { transform: translateX(-50px); }
+.fade-right { transform: translateX(50px); }
+.zoom-in { transform: scale(0.8); }
+
+.visible.fade-up { opacity: 1; transform: translateY(0); }
+.visible.fade-left { opacity: 1; transform: translateX(0); }
+.visible.fade-right { opacity: 1; transform: translateX(0); }
+.visible.zoom-in { opacity: 1; transform: scale(1); }
+
+/* Apply staggered delay for children */
+.stagger-delay > *:nth-child(1) { transition-delay: 0.1s; }
+.stagger-delay > *:nth-child(2) { transition-delay: 0.3s; }
+.stagger-delay > *:nth-child(3) { transition-delay: 0.5s; }
+.stagger-delay > *:nth-child(4) { transition-delay: 0.7s; }
