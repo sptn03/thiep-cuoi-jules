@@ -1,6 +1,6 @@
 // --- Đếm ngược ---
 // Đặt ngày cưới của bạn ở đây (Năm, Tháng - 1, Ngày, Giờ, Phút, Giây)
-const weddingDate = new Date(2025, 11, 28, 18, 0, 0).getTime();
+const weddingDate = new Date(2027, 11, 28, 18, 0, 0).getTime();
 
 const countdown = setInterval(() => {
     const now = new Date().getTime();
@@ -13,13 +13,18 @@ const countdown = setInterval(() => {
 
     const countdownElement = document.getElementById('countdown');
     if (countdownElement) {
-        countdownElement.innerHTML = `${days} ngày ${hours} giờ ${minutes} phút ${seconds} giây`;
+        countdownElement.innerHTML = `
+            <div class="time-box"><span class="num">${days}</span><span class="label">Ngày</span></div>
+            <div class="time-box"><span class="num">${hours}</span><span class="label">Giờ</span></div>
+            <div class="time-box"><span class="num">${minutes}</span><span class="label">Phút</span></div>
+            <div class="time-box"><span class="num">${seconds}</span><span class="label">Giây</span></div>
+        `;
     }
 
     if (distance < 0) {
         clearInterval(countdown);
         if (countdownElement) {
-            countdownElement.innerHTML = "Chúc mừng hạnh phúc!";
+            countdownElement.innerHTML = "<div class='time-box'>Chúc mừng hạnh phúc!</div>";
         }
     }
 }, 1000);

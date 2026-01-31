@@ -1,12 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Quicksand:wght@400;500;700&display=swap');
-
 :root {
-    --primary-color: #8B4513; /* SaddleBrown */
-    --secondary-color: #F5DEB3; /* Wheat */
-    --text-color: #333;
-    --bg-color: #FFF8F0;
-    --font-heading: 'Playfair Display', serif;
-    --font-body: 'Quicksand', sans-serif;
+    --primary-color: #D4AF37; /* Gold */
+    --secondary-color: #FDF5E6; /* Old Lace */
+    --text-color: #4A4A4A;
+    --bg-color: #FFFBF0;
+    --font-heading: 'Great Vibes', cursive;
+    --font-body: 'Montserrat', sans-serif;
 }
 
 * {
@@ -29,16 +27,22 @@ h1, h2, h3 {
 }
 
 h1 {
-    font-size: 4rem;
+    font-size: 5rem;
+    margin-bottom: 0.5rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
 }
 
 h2 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
 }
 
 h3 {
     font-size: 1.8rem;
+    font-family: var(--font-body);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
 }
 
 section {
@@ -55,7 +59,7 @@ section.visible {
 
 
 .hero-banner {
-    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://via.placeholder.com/1920x1080/CCCCCC/808080?text=Ảnh+Nền+Đám+Cưới') no-repeat center center/cover;
+    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://via.placeholder.com/1920x1080/CCCCCC/808080?text=Ảnh+Nền+Đám+Cưới') no-repeat center center/cover;
     color: white;
     padding: 6rem 2rem;
     height: 100vh;
@@ -63,12 +67,42 @@ section.visible {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    position: relative;
 }
 
 #countdown {
-    font-size: 2rem;
-    margin-top: 1.5rem;
+    margin-top: 3rem;
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.time-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    padding: 1rem;
+    min-width: 100px;
+    border-radius: 10px;
+    color: #fff;
+}
+
+.time-box .num {
+    font-size: 2.5rem;
     font-weight: 700;
+    line-height: 1;
+}
+
+.time-box .label {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 0.5rem;
 }
 
 #bride-groom .couple {
@@ -84,15 +118,26 @@ section.visible {
 }
 
 #bride-groom .person img {
-    width: 150px;
-    height: 150px;
+    width: 200px;
+    height: 200px;
     border-radius: 50%;
     object-fit: cover;
-    border: 5px solid var(--secondary-color);
+    border: 3px solid #fff;
+    box-shadow: 0 0 0 5px var(--primary-color), 0 10px 20px rgba(0,0,0,0.2);
+    margin-bottom: 1rem;
+    transition: transform 0.3s ease;
+}
+
+#bride-groom .person img:hover {
+    transform: scale(1.05);
 }
 
 #love-story {
     background-color: #fff;
+    border-radius: 20px;
+    max-width: 1000px;
+    margin: 4rem auto;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
 }
 
 #love-story p {
@@ -102,19 +147,34 @@ section.visible {
 }
 
 #event-details .event {
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
+    padding: 2rem;
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease;
+}
+
+#event-details .event:hover {
+    transform: translateY(-5px);
+}
+
+#event-details .event p {
+    margin: 0.5rem 0;
 }
 
 #event-details .map-placeholder {
     width: 100%;
     max-width: 600px;
     height: 300px;
-    background-color: #eee;
-    margin: 1rem auto;
+    background-color: #f9f9f9;
+    margin: 1.5rem auto;
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 2px dashed var(--primary-color);
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    color: #888;
 }
 
 #gallery .photo-grid {
@@ -128,12 +188,14 @@ section.visible {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: 10px;
-    transition: transform 0.3s ease;
+    border-radius: 15px;
+    transition: all 0.4s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
 #gallery .photo-grid img:hover {
-    transform: scale(1.05);
+    transform: scale(1.03);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
 }
 
 footer {
