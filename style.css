@@ -141,17 +141,28 @@ section.visible {
 }
 
 #love-story {
-    background-color: #fff;
-    border-radius: 20px;
-    max-width: 1000px;
-    margin: 4rem auto;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1519225421980-715cb0202128?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+    background-attachment: fixed; /* Parallax Effect */
+    color: white;
+    border-radius: 0; /* Remove radius for full width feel, or keep container boxed */
+    max-width: 100%; /* Full width */
+    margin: 4rem 0;
+    padding: 6rem 2rem;
+    box-shadow: none;
+    position: relative;
+}
+
+#love-story h2 {
+    color: #FDF5E6; /* Light color for dark bg */
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
 }
 
 #love-story p {
     max-width: 800px;
     margin: 0 auto;
-    font-size: 1.1rem;
+    font-size: 1.3rem;
+    line-height: 2;
+    font-weight: 500;
 }
 
 #event-details .event {
@@ -356,3 +367,86 @@ footer {
 .stagger-delay > *:nth-child(2) { transition-delay: 0.3s; }
 .stagger-delay > *:nth-child(3) { transition-delay: 0.5s; }
 .stagger-delay > *:nth-child(4) { transition-delay: 0.7s; }
+
+/* Body Background Texture */
+body {
+    /* Subtle paper texture pattern */
+    background-image: radial-gradient(#E6D0B3 1px, transparent 1px), radial-gradient(#E6D0B3 1px, transparent 1px);
+    background-size: 20px 20px;
+    background-position: 0 0, 10px 10px;
+    background-color: var(--bg-color);
+}
+
+/* Floral Decor */
+.floral-decor {
+    position: fixed;
+    width: 200px; /* Adjust size */
+    max-width: 30vw;
+    z-index: 100; /* Above normal content but below modal overlays if any */
+    pointer-events: none; /* Let clicks pass through */
+    opacity: 0.8;
+    mix-blend-mode: multiply; /* Make white bg transparent-ish */
+}
+
+.floral-decor.top-left {
+    top: 0;
+    left: 0;
+    transform: rotate(0deg);
+}
+
+.floral-decor.bottom-right {
+    bottom: 0;
+    right: 0;
+    transform: rotate(180deg);
+}
+
+@media (max-width: 768px) {
+    .floral-decor {
+        width: 120px;
+        opacity: 0.5; /* Fainter on mobile */
+    }
+}
+
+/* Quote Section */
+#quote {
+    background: linear-gradient(rgba(212, 175, 55, 0.7), rgba(212, 175, 55, 0.7)), url('https://images.unsplash.com/photo-1522673607200-1645062cd958?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+    background-attachment: fixed;
+    padding: 6rem 2rem;
+    color: white;
+    text-align: center;
+    margin: 4rem 0;
+}
+
+#quote .quote-content {
+    max-width: 800px;
+    margin: 0 auto;
+    border: 2px solid white;
+    padding: 3rem;
+    position: relative;
+}
+
+#quote .quote-content::before,
+#quote .quote-content::after {
+    content: "❤";
+    position: absolute;
+    background: transparent;
+    color: white;
+    font-size: 2rem;
+    top: -1.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background: transparent;
+    padding: 0 1rem;
+}
+
+#quote .quote-content::after {
+    top: auto;
+    bottom: -1.5rem;
+}
+
+#quote p {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    line-height: 1.4;
+    font-style: italic;
+}
